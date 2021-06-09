@@ -1,5 +1,4 @@
 package com.ScrapBook.scrapbook_service_db.models;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
