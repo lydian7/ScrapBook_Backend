@@ -19,7 +19,7 @@ public class Post {
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     @JsonIgnoreProperties("posts")
-    private User author;
+    private User user;
 
     @Column(name = "caption")
     private String caption;
@@ -27,9 +27,9 @@ public class Post {
     @Column(name = "img_link")
     private String img_link;
 
-    public Post(String time_stamp, User author, String caption, String img_link) {
+    public Post(String time_stamp, User user, String caption, String img_link) {
         this.time_stamp = time_stamp;
-        this.author = author;
+        this.user = user;
         this.caption = caption;
         this.img_link = img_link;
     }
@@ -45,12 +45,12 @@ public class Post {
         this.time_stamp = time_stamp;
     }
 
-    public User getAuthor() {
-        return author;
+    public User getUser() {
+        return user;
     }
 
-    public void setAuthor(User author) {
-        this.author = author;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getCaption() {
