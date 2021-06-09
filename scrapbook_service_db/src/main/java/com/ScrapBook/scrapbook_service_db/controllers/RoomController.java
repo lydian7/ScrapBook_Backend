@@ -23,7 +23,7 @@ public class RoomController {
 
     @GetMapping(value = "/rooms/users")
     public ResponseEntity findByUserId(@RequestParam(name="user_id", required = false) Long user_id){
-        List<Room> findRoom = roomRepository.findByUserId(user_id);
+        List<Room> findRoom = roomRepository.findByUsersId(user_id);
         return new ResponseEntity<>(findRoom, HttpStatus.OK);
     }
 
