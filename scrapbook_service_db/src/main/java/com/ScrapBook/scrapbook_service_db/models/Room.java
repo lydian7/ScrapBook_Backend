@@ -23,7 +23,7 @@ public class Room {
 
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
-    @JsonIgnoreProperties("rooms")
+    @JsonIgnoreProperties({"rooms"})
     @JoinTable(name = "rooms_users",
             joinColumns = {@JoinColumn(name = "room_id", nullable = false, updatable = false)},
             inverseJoinColumns = {@JoinColumn(name = "user_id", nullable = false, updatable = false)}
@@ -95,4 +95,21 @@ public class Room {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public void addUser(User newUser){ // needs to get tested
+        Boolean check = false;
+        for(User user : users){
+            if(user.getId() == newUser.getId()){
+                check = true;
+
+            }
+        }
+
+        if(!check){
+            this.users.add(newUser);
+        }
+
+    }
+
+
 }

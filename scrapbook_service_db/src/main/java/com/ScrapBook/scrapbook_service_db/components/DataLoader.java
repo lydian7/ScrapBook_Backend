@@ -36,16 +36,25 @@ public class DataLoader implements ApplicationRunner {
 
     public void run(ApplicationArguments args){
 
-        User user = new User("Ahmet", "Old boy", "mehehehehe", "01/11/1974", "metallica");
-        userRepository.save(user);
-
         Room room = new Room("Memory Lane", "Giritli's ScrapBook", "123456");
         roomRepository.save(room);
 
-        Message message = new Message(user.getName(), LocalTime.now().toString(), "This is my first message!");
+        User user = new User("Ahmet", "Old boy", "mehehehehe", "01/11/1974", "metallica");
+        userRepository.save(user);
+
+
+        Message message = new Message(user.getName(), LocalTime.now().toString(), "This is my first message!", room);
         messageRepository.save(message);
 
         Post post = new Post(LocalTime.now().toString(), user, "My first time skydiving", "img/pic");
         postRepository.save(post);
+
+
+//        user.addRoom(room);
+//        userRepository.save(user);
+
+        room.addUser(user);
+        roomRepository.save(room);
+
     }
 }

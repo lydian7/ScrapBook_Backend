@@ -23,14 +23,14 @@ public class User {
 
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
-    @JsonIgnoreProperties("users")
+    @JsonIgnoreProperties({"users"})
     @JoinTable(name = "rooms_users",
             joinColumns = {@JoinColumn(name = "user_id", nullable = false, updatable = false)},
             inverseJoinColumns = {@JoinColumn(name = "room_id", nullable = false, updatable = false)}
     )
     private List<Room> rooms;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
     @JsonIgnoreProperties("users")
     private List<Post> posts;
 
@@ -118,5 +118,9 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void addRoom(Room room){
+        this.rooms.add(room);
     }
 }
