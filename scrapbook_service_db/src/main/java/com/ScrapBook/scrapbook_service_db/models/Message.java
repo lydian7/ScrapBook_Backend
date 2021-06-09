@@ -1,12 +1,4 @@
 package com.ScrapBook.scrapbook_service_db.models;
-import javax.persistence.*
-
-<<<<<<< HEAD
-@Entity
-public class Message {
-    private String time_stamp;
-
-=======
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -83,6 +75,4 @@ public class Message {
     public void setRoom(Room room) {
         this.room = room;
     }
->>>>>>> aa7d68de3e8c6163a7bf4c1088512480e126e6c8
 }
-git 

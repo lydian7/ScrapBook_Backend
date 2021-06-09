@@ -1,7 +1,6 @@
 package com.ScrapBook.scrapbook_service_db.controllers;
 
 import com.ScrapBook.scrapbook_service_db.models.Post;
-import com.ScrapBook.scrapbook_service_db.models.User;
 import com.ScrapBook.scrapbook_service_db.repositories.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -32,7 +31,6 @@ public class PostController {
          List<Post> findPost = postRepository.findByUserId(user_id);
         return new ResponseEntity<>(findPost, HttpStatus.OK);
     }
-
 
 
     @PostMapping(value = "/posts")
