@@ -1,6 +1,7 @@
 package com.ScrapBook.scrapbook_service_db.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -20,8 +21,13 @@ public class User {
     @Column(name = "bio")
     private String bio;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @ManyToMany
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JsonIgnoreProperties("users")
+    @JoinTable(name = "rooms_users",
+            joinColumns = {@JoinColumn(name = "user_id", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "room_id", nullable = false, updatable = false)}
+    )
     private List<Room> rooms;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
