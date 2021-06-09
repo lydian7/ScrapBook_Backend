@@ -30,7 +30,7 @@ public class User {
     )
     private List<Room> rooms;
 
-    @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     @JsonIgnoreProperties("users")
     private List<Post> posts;
 
