@@ -19,8 +19,7 @@ public class Message {
     @Column(name = "message")
     private String message;
 
-    public Message(Long id, String sender, String timeStamp, String message) {
-        Id = id;
+    public Message(String sender, String timeStamp, String message) {
         this.sender = sender;
         this.timeStamp = timeStamp;
         this.message = message;

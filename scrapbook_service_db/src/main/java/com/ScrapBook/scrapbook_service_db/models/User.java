@@ -43,8 +43,7 @@ public class User {
     @Column(name = "password")
     private String password;
 
-    public User(Long id, String name, String bio, String profilePicture, String dateOfBirth, String password) {
-        this.id = id;
+    public User(String name, String bio, String profilePicture, String dateOfBirth, String password) {
         this.name = name;
         this.bio = bio;
         this.rooms = new ArrayList<>();

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -36,12 +37,11 @@ public class Room {
     @Column(name = "password")
     private String password;
 
-    public Room(Long id, String roomName, String bio, List<User> users, List<Message> messages, String password) {
-        this.id = id;
+    public Room(String roomName, String bio, String password) {
         this.roomName = roomName;
         this.bio = bio;
-        this.users = users;
-        this.messages = messages;
+        this.users = new ArrayList<>();
+        this.messages = new ArrayList<>();
         this.password = password;
     }
 
