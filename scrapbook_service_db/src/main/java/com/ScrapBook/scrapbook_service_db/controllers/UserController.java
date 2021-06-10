@@ -39,4 +39,11 @@ public class UserController {
         return new ResponseEntity<>(null, HttpStatus.OK);
     }
 
+    @GetMapping(value ="/users/login")
+    public ResponseEntity getByUserNameAndPassword
+            (@RequestParam(name ="name" , required = false) String name, @RequestParam(name ="password", required = false) String password){
+        User found = userRepository.findByNameAndPassword(name, password);
+        return new ResponseEntity<>(found, HttpStatus.OK);
+    }
+
 }
