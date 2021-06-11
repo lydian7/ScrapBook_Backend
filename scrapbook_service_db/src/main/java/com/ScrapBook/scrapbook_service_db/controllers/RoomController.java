@@ -1,6 +1,5 @@
 package com.ScrapBook.scrapbook_service_db.controllers;
 
-import com.ScrapBook.scrapbook_service_db.models.Post;
 import com.ScrapBook.scrapbook_service_db.models.Room;
 import com.ScrapBook.scrapbook_service_db.repositories.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +24,11 @@ public class RoomController {
     public ResponseEntity findByUserId(@RequestParam(name="user_id", required = false) Long user_id){
         List<Room> findRoom = roomRepository.findByUsersId(user_id);
         return new ResponseEntity<>(findRoom, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "rooms/{id}")
+    public ResponseEntity getByRoomId(@PathVariable Long id) {
+        return new ResponseEntity(roomRepository.findById(id), HttpStatus.OK);
     }
 
 
