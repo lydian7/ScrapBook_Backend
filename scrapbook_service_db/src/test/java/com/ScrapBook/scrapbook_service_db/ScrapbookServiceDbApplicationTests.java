@@ -1,5 +1,6 @@
 package com.ScrapBook.scrapbook_service_db;
 
+import com.ScrapBook.scrapbook_service_db.models.Message;
 import com.ScrapBook.scrapbook_service_db.models.Post;
 import com.ScrapBook.scrapbook_service_db.models.Room;
 import com.ScrapBook.scrapbook_service_db.models.User;
@@ -33,7 +34,7 @@ class ScrapbookServiceDbApplicationTests {
 	@Autowired
 	MessageRepository messageRepository;
 
-	private User user;
+
 
 	@Test
 	void contextLoads() {
@@ -52,6 +53,12 @@ class ScrapbookServiceDbApplicationTests {
 	}
 
 	@Test
+	public void canGetUserById() {
+		User found = userRepository.getById(1L);
+
+	}
+
+	@Test
 	public void canFindUserByNameAndPassword() {
 	User found = userRepository.findByNameAndPassword("Pooja", "123456");
 
@@ -63,21 +70,35 @@ class ScrapbookServiceDbApplicationTests {
 		roomRepository.save(room);
 	}
 
-	@Test
-	public void canFindPostByUserId() {
-		List<Post> foundPost = postRepository.findByUserId(1L);
-		assertEquals(1, foundPost.size());
-		assertEquals("My first time skydiving", foundPost.get(0).getCaption());
-
-	}
-
 
 	@Test
 	public void canFindRoomByUsersId() {
 	List<Room> foundRooms = roomRepository.findByUsersId(1L);
 		assertEquals("Memory Lane", foundRooms.get(0).getRoomName());
+		assertEquals(5,foundRooms.size() );
 
 	}
+
+	@Test
+	public void canFindPostByUserId() {
+		List<Post> foundPost = postRepository.findByUserId(1L);
+		assertEquals(1, foundPost.size());
+		assertEquals("My first time skydiving", foundPost.get(0).getCaption());
+	}
+
+	@Test
+	public void canGetAllMessages() {
+		List<Message> foundMessage = messageRepository.findAll();
+		assertEquals(1, foundMessage.size());
+		assertEquals("This is my first message!", foundMessage.get(0).getMessage());
+	}
+
+
+
+
+
+
+
 
 
 
