@@ -1,6 +1,7 @@
 package com.ScrapBook.scrapbook_service_db.models;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -27,11 +28,17 @@ public class Post {
     @Column(name = "img_link")
     private String img_link;
 
-    public Post(String time_stamp, User user, String caption, String img_link) {
+    @ManyToOne
+    @JoinColumn(name = "room_id", nullable = false)
+    @JsonBackReference
+    private Room room;
+
+    public Post(String time_stamp, User user, String caption, String img_link, Room room) {
         this.time_stamp = time_stamp;
         this.user = user;
         this.caption = caption;
         this.img_link = img_link;
+        this.room = room;
     }
 
     public Post() {
