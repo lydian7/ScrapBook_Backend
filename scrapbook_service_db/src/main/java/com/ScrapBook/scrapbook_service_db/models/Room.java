@@ -103,15 +103,18 @@ public class Room {
     }
 
     public void addUser(User newUser){ // needs to get tested
-        Boolean check = false;
-        for(User user : users){
-            if(user.getId() == newUser.getId()){
-                check = true;
-
-            }
-        }
-
-        if(!check){
+//        Boolean check = false;
+//        for(User user : users){
+//            if(user.getId() == newUser.getId()){
+//                check = true;
+//
+//            }
+//        }
+//
+//        if(!check){
+//            this.users.add(newUser);
+//        }
+        if(!users.contains(newUser)){
             this.users.add(newUser);
         }
 
