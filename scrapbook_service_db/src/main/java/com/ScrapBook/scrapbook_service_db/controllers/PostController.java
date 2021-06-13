@@ -26,11 +26,11 @@ public class PostController {
         return new ResponseEntity<>(postRepository.findById(id), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/posts/users")
-    public ResponseEntity findByUserId(@RequestParam(name="user_id", required = false) Long user_id){
-         List<Post> findPost = postRepository.findByUserId(user_id);
-        return new ResponseEntity<>(findPost, HttpStatus.OK);
-    }
+//    @GetMapping(value = "/posts/users")
+//    public ResponseEntity findByUserId(@RequestParam(name="user_id", required = false) Long user_id){
+//         List<Post> findPost = postRepository.findByUserId(user_id);
+//        return new ResponseEntity<>(findPost, HttpStatus.OK);
+//    }
 
 
     @PostMapping(value = "/posts")

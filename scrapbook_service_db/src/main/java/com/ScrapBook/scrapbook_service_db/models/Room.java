@@ -1,6 +1,5 @@
 package com.ScrapBook.scrapbook_service_db.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 
@@ -36,7 +35,7 @@ public class Room {
     private List<Message> messages;
 
     @OneToMany(mappedBy = "room", fetch = FetchType.LAZY)
-    @JsonBackReference
+    @JsonIgnoreProperties({"users"})
     private List<Post> posts;
 
     @Column(name = "password")
@@ -102,18 +101,8 @@ public class Room {
         this.password = password;
     }
 
-    public void addUser(User newUser){ // needs to get tested
-//        Boolean check = false;
-//        for(User user : users){
-//            if(user.getId() == newUser.getId()){
-//                check = true;
-//
-//            }
-//        }
-//
-//        if(!check){
-//            this.users.add(newUser);
-//        }
+    public void addUser(User newUser){
+        
         if(!users.contains(newUser)){
             this.users.add(newUser);
         }

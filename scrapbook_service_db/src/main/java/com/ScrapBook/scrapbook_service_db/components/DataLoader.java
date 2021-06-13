@@ -74,7 +74,7 @@ public class DataLoader implements ApplicationRunner {
         Message message = new Message(user.getName(), LocalTime.now().toString(), "This is my first message!", room);
         messageRepository.save(message);
 
-        Post post = new Post(LocalTime.now().toString(), user, "My first time skydiving", "img/pic", room);
+        Post post = new Post(LocalTime.now().toString(), "My first time skydiving", "img/pic", room);
         postRepository.save(post);
 
 

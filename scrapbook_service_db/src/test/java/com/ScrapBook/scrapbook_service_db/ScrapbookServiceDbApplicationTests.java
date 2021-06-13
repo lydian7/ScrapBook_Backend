@@ -80,8 +80,8 @@ class ScrapbookServiceDbApplicationTests {
 	}
 
 	@Test
-	public void canFindPostByUserId() {
-		List<Post> foundPost = postRepository.findByUserId(1L);
+	public void canFindPostByRoomId() {
+		List<Post> foundPost = postRepository.findByRoomId(1L);
 		assertEquals(1, foundPost.size());
 		assertEquals("My first time skydiving", foundPost.get(0).getCaption());
 	}
