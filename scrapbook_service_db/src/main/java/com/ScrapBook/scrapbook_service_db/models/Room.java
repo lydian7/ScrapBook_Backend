@@ -102,7 +102,7 @@ public class Room {
     }
 
     public void addUser(User newUser){
-        
+
         if(!users.contains(newUser)){
             this.users.add(newUser);
         }

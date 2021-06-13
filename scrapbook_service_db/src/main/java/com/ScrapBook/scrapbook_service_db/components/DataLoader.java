@@ -77,6 +77,17 @@ public class DataLoader implements ApplicationRunner {
         Post post = new Post(LocalTime.now().toString(), "My first time skydiving", "img/pic", room);
         postRepository.save(post);
 
+        Post post1 = new Post(LocalTime.now().toString(), "Hello World", "img/pic", room);
+        postRepository.save(post1);
+
+        Post post2 = new Post(LocalTime.now().toString(), "I love REACT", "img/pic", room);
+        postRepository.save(post2);
+
+        Post post3 = new Post(LocalTime.now().toString(), "NOT AN IMAGE", "img/pic", room);
+        postRepository.save(post3);
+
+
+
 
 //        user.addRoom(room);
 //        userRepository.save(user);
