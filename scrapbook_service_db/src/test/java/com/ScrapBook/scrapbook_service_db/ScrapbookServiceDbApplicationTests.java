@@ -42,7 +42,7 @@ class ScrapbookServiceDbApplicationTests {
 
 	@Test
 	public void createUserThenSave() {
-		User user = new User("Ahmet", "Old boy", "mehehehehe", "01/11/1974", "metallica");
+		User user = new User("Ahmet", "Old boy", "image1", "01/11/1974", "metallica");
 		userRepository.save(user);
 	}
 
@@ -66,7 +66,7 @@ class ScrapbookServiceDbApplicationTests {
 
 	@Test
 	public void createRoomThenSave() {
-		Room room = new Room("Memory Lane", "Giritli's ScrapBook", "123456");
+		Room room = new Room("Memory Lane", "Giritli's ScrapBook", "123456", "ahmet@gmail.com");
 		roomRepository.save(room);
 	}
 
@@ -96,7 +96,7 @@ class ScrapbookServiceDbApplicationTests {
 	@Test
 	void cantAddDuplicateUser() {
 		User user = new User("Ahmet", "Old boy", "mehehehehe", "01/11/1974", "metallica");
-		Room room = new Room("Memory Lane", "Giritli's ScrapBook", "123456");
+		Room room = new Room("Memory Lane", "Giritli's ScrapBook", "123456", "ahmet@gmail.com");
 		room.addUser(user);
 		room.addUser(user);
 		assertEquals(1, room.getUsers().size());
