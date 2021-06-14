@@ -33,7 +33,7 @@ public class Room {
     )
     private List<User> users;
 
-    @OneToMany(mappedBy = "room", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "room", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnoreProperties("room")
     private List<Message> messages;
 
