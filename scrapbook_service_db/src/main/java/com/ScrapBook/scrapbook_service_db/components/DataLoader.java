@@ -74,16 +74,16 @@ public class DataLoader implements ApplicationRunner {
         Message message = new Message(user.getName(), LocalTime.now().toString(), "This is my first message!", room);
         messageRepository.save(message);
 
-        Post post = new Post(LocalTime.now().toString(), "My first time skydiving", "img/pic", room);
+        Post post = new Post(LocalTime.now().toString(),"My first time skydiving", "img/pic", room2, user);
         postRepository.save(post);
 
-        Post post1 = new Post(LocalTime.now().toString(), "Hello World", "img/pic", room);
+        Post post1 = new Post(LocalTime.now().toString(), "Hello World", "img/pic", room2, user);
         postRepository.save(post1);
 
-        Post post2 = new Post(LocalTime.now().toString(), "I love REACT", "img/pic", room);
+        Post post2 = new Post(LocalTime.now().toString(), "I love REACT", "img/pic", room3, user3);
         postRepository.save(post2);
 
-        Post post3 = new Post(LocalTime.now().toString(), "NOT AN IMAGE", "img/pic", room);
+        Post post3 = new Post(LocalTime.now().toString(), "NOT AN IMAGE", "img/pic", room4, user2);
         postRepository.save(post3);
 
         Post post4 = new Post(LocalTime.now().toString(), "Visiting Edinburgh Castle", "img/pic", room2);
