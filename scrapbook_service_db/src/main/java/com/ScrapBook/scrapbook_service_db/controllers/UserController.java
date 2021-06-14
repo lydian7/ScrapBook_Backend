@@ -48,7 +48,7 @@ public class UserController {
     @GetMapping(value ="users/signup")
     public ResponseEntity<User> getByEmail(@RequestParam(name="email", required=false) String email){
         User found = userRepository.findByEmail(email);
-        return new ResponseEntity(found, HttpStatus.OK);
+        return new ResponseEntity<User>(found, HttpStatus.OK);
     }
 
 }

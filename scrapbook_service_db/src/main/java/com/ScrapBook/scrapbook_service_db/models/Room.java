@@ -38,7 +38,7 @@ public class Room {
     private List<Message> messages;
 
     @OneToMany(mappedBy = "room", fetch = FetchType.LAZY)
-    @JsonIgnoreProperties({"users"})
+    @JsonIgnoreProperties("room")
     private List<Post> posts;
 
     @Column(name = "password")
