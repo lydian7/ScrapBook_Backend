@@ -59,16 +59,16 @@ public class DataLoader implements ApplicationRunner {
 
 
 
-        User user = new User("Ahmet", "Old boy", "mehehehehe", "01/11/1974", "metallica");
+        User user = new User("ahmet@gmail.com","Ahmet","01/11/1974", "metallica");
         userRepository.save(user);
 
-        User user2 = new User("Mary", "Young at heart", "mehehehehe", "01/06/1978", "123456");
+        User user2 = new User("mary@gmail.com", "Mary", "01/06/1978", "123456");
         userRepository.save(user2);
 
-        User user3 = new User("Liam", "Coding Nomad", "mehehehehe", "01/01/1990", "123456");
+        User user3 = new User("liam@gmail.com", "Liam", "01/01/1990", "123456");
         userRepository.save(user3);
 
-        User user4 = new User("Pooja", "Testing Genius", "mehehehehe", "01/01/1990", "123456");
+        User user4 = new User("pooja@gmail.com", "Pooja", "01/01/1990", "123456");
         userRepository.save(user4);
 
         Message message = new Message(user.getName(), LocalTime.now().toString(), "This is my first message!", room);
