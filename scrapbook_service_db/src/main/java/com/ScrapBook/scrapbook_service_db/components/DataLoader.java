@@ -40,6 +40,7 @@ public class DataLoader implements ApplicationRunner {
         roomRepository.save(room);
 
         Room room2 = new Room("Memories", "Mary's ScrapBook", "123456");
+
         roomRepository.save(room2);
 
         Room room3 = new Room("Time Machine", "Liam's ScrapBook", "123456");
@@ -83,7 +84,7 @@ public class DataLoader implements ApplicationRunner {
         Post post2 = new Post(LocalTime.now().toString(), "I love REACT", "img/pic", room);
         postRepository.save(post2);
 
-        Post post3 = new Post(LocalTime.now().toString(), "NOT AN IMAGE", "img/pic", room);
+        Post post3 = new Post(LocalTime.now().toString(), "NOT AN IMAGE", "img/pic", room2);
         postRepository.save(post3);
 
 
