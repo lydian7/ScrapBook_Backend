@@ -36,39 +36,39 @@ public class DataLoader implements ApplicationRunner {
 
     public void run(ApplicationArguments args){
 
-        Room room = new Room("Memory Lane", "Giritli's ScrapBook", "123456");
+        Room room = new Room("Memory Lane", "Giritli's ScrapBook", "123456", "ahmet@gmail.com");
         roomRepository.save(room);
 
-        Room room2 = new Room("Memories", "Mary's ScrapBook", "123456");
+        Room room2 = new Room("Memories", "Mary's ScrapBook", "123456", "mary@gmail.com");
         roomRepository.save(room2);
 
-        Room room3 = new Room("Time Machine", "Liam's ScrapBook", "123456");
+        Room room3 = new Room("Time Machine", "Liam's ScrapBook", "123456", "liam@gmail.com");
         roomRepository.save(room3);
 
-        Room room4 = new Room("Happy Times", "Pooja's ScrapBook", "123456");
+        Room room4 = new Room("Happy Times", "Pooja's ScrapBook", "123456", "pooja@gmail.com");
         roomRepository.save(room4);
 
-        Room room5 = new Room("40th Birthday", "Ahmet's Birthday Party", "123456");
+        Room room5 = new Room("40th Birthday", "Ahmet's Birthday Party", "123456", "ahmet@gmail.com");
         roomRepository.save(room5);
 
-        Room room6 = new Room("Cats", "Scrapbook of reasons why we live with these little terrors.", "123456");
+        Room room6 = new Room("Cats", "Scrapbook of reasons why we live with these little terrors.", "123456", "mary@gmail.com");
         roomRepository.save(room6);
 
-        Room room7 = new Room("CodeClan Tears", "Remembering React.", "123456");
+        Room room7 = new Room("CodeClan Tears", "Remembering React.", "123456", "mary@gmail.com");
         roomRepository.save(room7);
 
 
 
-        User user = new User("Ahmet", "Old boy", "mehehehehe", "01/11/1974", "metallica");
+        User user = new User("ahmet@gmail.com","Ahmet","01/11/1974", "metallica");
         userRepository.save(user);
 
-        User user2 = new User("Mary", "Young at heart", "mehehehehe", "01/06/1978", "123456");
+        User user2 = new User("mary@gmail.com", "Mary", "01/06/1978", "123456");
         userRepository.save(user2);
 
-        User user3 = new User("Liam", "Coding Nomad", "mehehehehe", "01/01/1990", "123456");
+        User user3 = new User("liam@gmail.com", "Liam", "01/01/1990", "123456");
         userRepository.save(user3);
 
-        User user4 = new User("Pooja", "Testing Genius", "mehehehehe", "01/01/1990", "123456");
+        User user4 = new User("pooja@gmail.com", "Pooja", "01/01/1990", "123456");
         userRepository.save(user4);
 
         Message message = new Message(user.getName(), LocalTime.now().toString(), "This is my first message!", room);
