@@ -101,4 +101,10 @@ class ScrapbookServiceDbApplicationTests {
 		room.addUser(user);
 		assertEquals(1, room.getUsers().size());
 	}
+
+	@Test
+	void canFindUserByEmail() {
+		userRepository.findByEmail("ahmet@gmail.com");
+
+	}
 }
