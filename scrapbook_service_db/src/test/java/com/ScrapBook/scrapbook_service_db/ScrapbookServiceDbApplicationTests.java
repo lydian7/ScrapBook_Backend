@@ -107,4 +107,9 @@ class ScrapbookServiceDbApplicationTests {
 		userRepository.findByEmail("ahmet@gmail.com");
 
 	}
+
+	@Test
+	void canFindMessagesByRoomId() {
+		messageRepository.findByRoomId(1L);
+	}
 }

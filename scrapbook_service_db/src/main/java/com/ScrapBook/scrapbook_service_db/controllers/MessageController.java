@@ -10,10 +10,7 @@ import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,6 +24,11 @@ public class MessageController {
     @GetMapping(value = "/messages")
     public ResponseEntity<List<Message>>  getAllMessages(){
         return new ResponseEntity<>(messageRepository.findAll(), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/messages/{id}")
+    public ResponseEntity getMessagesByRoomId(@PathVariable Long id) {
+        return new ResponseEntity(messageRepository.findByRoomId(id), HttpStatus.OK);
     }
 
     @PostMapping(value = "/messages")
