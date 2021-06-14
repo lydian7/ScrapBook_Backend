@@ -37,13 +37,9 @@ public class Room {
     @JsonIgnoreProperties("room")
     private List<Message> messages;
 
-<<<<<<< HEAD
+
     @OneToMany(mappedBy = "room", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-    @JsonIgnoreProperties({"users"})
-=======
-    @OneToMany(mappedBy = "room", fetch = FetchType.LAZY)
-    @JsonIgnoreProperties("room")
->>>>>>> bc42a9094d002e11155a2d2cf4b595308885e493
+    @JsonIgnoreProperties({"room"})
     private List<Post> posts;
 
     @Column(name = "password")

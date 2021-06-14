@@ -87,44 +87,42 @@ public class DataLoader implements ApplicationRunner {
         Post post2 = new Post(LocalTime.now().toString(), "I love REACT", "img/pic", room3, user3);
         postRepository.save(post2);
 
-<<<<<<< HEAD
-        Post post3 = new Post(LocalTime.now().toString(), "NOT AN IMAGE", "img/pic", room2);
-=======
+
         Post post3 = new Post(LocalTime.now().toString(), "NOT AN IMAGE", "img/pic", room4, user2);
->>>>>>> bc42a9094d002e11155a2d2cf4b595308885e493
+
         postRepository.save(post3);
 
-        Post post4 = new Post(LocalTime.now().toString(), "Visiting Edinburgh Castle", "img/pic", room2);
+        Post post4 = new Post(LocalTime.now().toString(), "Visiting Edinburgh Castle", "img/pic", room2, user);
         postRepository.save(post4);
 
-        Post post5 = new Post(LocalTime.now().toString(), "Day at the Beach", "img/pic", room2);
+        Post post5 = new Post(LocalTime.now().toString(), "Day at the Beach", "img/pic", room2, user3);
         postRepository.save(post5);
 
-        Post post6 = new Post(LocalTime.now().toString(), "Party at Ally's", "img/pic", room3);
+        Post post6 = new Post(LocalTime.now().toString(), "Party at Ally's", "img/pic", room3, user4);
         postRepository.save(post6);
 
-        Post post7 = new Post(LocalTime.now().toString(), "Glasgow Road Trip", "img/pic", room3);
+        Post post7 = new Post(LocalTime.now().toString(), "Glasgow Road Trip", "img/pic", room3, user2);
         postRepository.save(post7);
 
-        Post post8 = new Post(LocalTime.now().toString(), "Climbing Holiday", "img/pic", room3);
+        Post post8 = new Post(LocalTime.now().toString(), "Climbing Holiday", "img/pic", room3, user3);
         postRepository.save(post1);
 
-        Post post9 = new Post(LocalTime.now().toString(), "Family Meal", "img/pic", room4);
+        Post post9 = new Post(LocalTime.now().toString(), "Family Meal", "img/pic", room4, user4);
         postRepository.save(post2);
 
-        Post post10 = new Post(LocalTime.now().toString(), "Cutting the Cake", "img/pic", room5);
+        Post post10 = new Post(LocalTime.now().toString(), "Cutting the Cake", "img/pic", room5, user3);
         postRepository.save(post3);
 
-        Post post11 = new Post(LocalTime.now().toString(), "Night Out", "img/pic", room6);
+        Post post11 = new Post(LocalTime.now().toString(), "Night Out", "img/pic", room6, user);
         postRepository.save(post4);
 
-        Post post12 = new Post(LocalTime.now().toString(), "Getting up to Mischief", "img/pic", room6);
+        Post post12 = new Post(LocalTime.now().toString(), "Getting up to Mischief", "img/pic", room6, user3);
         postRepository.save(post5);
 
-        Post post13 = new Post(LocalTime.now().toString(), "Cohort Social", "img/pic", room7);
+        Post post13 = new Post(LocalTime.now().toString(), "Cohort Social", "img/pic", room7, user2);
         postRepository.save(post6);
 
-        Post post14 = new Post(LocalTime.now().toString(), "Graduation", "img/pic", room7);
+        Post post14 = new Post(LocalTime.now().toString(), "Graduation", "img/pic", room7, user);
         postRepository.save(post7);
 
 
