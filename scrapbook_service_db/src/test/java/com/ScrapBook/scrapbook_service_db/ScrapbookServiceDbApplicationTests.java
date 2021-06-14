@@ -80,8 +80,8 @@ class ScrapbookServiceDbApplicationTests {
 	}
 
 	@Test
-	public void canFindPostByUserId() {
-		List<Post> foundPost = postRepository.findByUserId(1L);
+	public void canFindPostByRoomId() {
+		List<Post> foundPost = postRepository.findByRoomId(1L);
 		assertEquals(1, foundPost.size());
 		assertEquals("My first time skydiving", foundPost.get(0).getCaption());
 	}
@@ -93,15 +93,12 @@ class ScrapbookServiceDbApplicationTests {
 		assertEquals("This is my first message!", foundMessage.get(0).getMessage());
 	}
 
-
-
-
-
-
-
-
-
-
-
-
+	@Test
+	void cantAddDuplicateUser() {
+		User user = new User("Ahmet", "Old boy", "mehehehehe", "01/11/1974", "metallica");
+		Room room = new Room("Memory Lane", "Giritli's ScrapBook", "123456");
+		room.addUser(user);
+		room.addUser(user);
+		assertEquals(1, room.getUsers().size());
+	}
 }

@@ -34,6 +34,10 @@ public class Room {
     @JsonIgnoreProperties("room")
     private List<Message> messages;
 
+    @OneToMany(mappedBy = "room", fetch = FetchType.LAZY)
+    @JsonIgnoreProperties({"users"})
+    private List<Post> posts;
+
     @Column(name = "password")
     private String password;
 
@@ -43,6 +47,7 @@ public class Room {
         this.users = new ArrayList<>();
         this.messages = new ArrayList<>();
         this.password = password;
+        this.posts = new ArrayList<>();
     }
 
     public Room() {
@@ -96,20 +101,23 @@ public class Room {
         this.password = password;
     }
 
-    public void addUser(User newUser){ // needs to get tested
-        Boolean check = false;
-        for(User user : users){
-            if(user.getId() == newUser.getId()){
-                check = true;
+    public void addUser(User newUser){
 
-            }
-        }
-
-        if(!check){
+        if(!users.contains(newUser)){
             this.users.add(newUser);
         }
 
     }
 
+    public List<Post> getPosts() {
+        return posts;
+    }
 
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
+    }
+
+    public void addPost(Post post){
+        this.posts.add(post);
+    }
 }
