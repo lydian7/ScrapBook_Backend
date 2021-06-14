@@ -1,6 +1,7 @@
 package com.ScrapBook.scrapbook_service_db.controllers;
 
 import com.ScrapBook.scrapbook_service_db.models.Room;
+import com.ScrapBook.scrapbook_service_db.models.User;
 import com.ScrapBook.scrapbook_service_db.repositories.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -36,6 +37,17 @@ public class RoomController {
     public ResponseEntity<Room> deleteRoom(@PathVariable Long id) {
         Room found = roomRepository.getById(id);
         roomRepository.delete(found);
+        return new ResponseEntity<>(null, HttpStatus.OK);
+    }
+
+
+    @PutMapping(value = "/rooms/{id}")
+    public ResponseEntity<Room> patchAddUserToRoom(@PathVariable Long id, @RequestBody User user){
+        System.out.println(user.getName());
+        Room room = roomRepository.getById(id);
+        System.out.println(room.getRoomName());
+        room.addUser(user);
+        roomRepository.save(room);
         return new ResponseEntity<>(null, HttpStatus.OK);
     }
 }
