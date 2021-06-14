@@ -27,11 +27,16 @@ public class RoomController {
         return new ResponseEntity<>(findRoom, HttpStatus.OK);
     }
 
-    @GetMapping(value = "rooms/{id}")
+    @GetMapping(value = "/rooms/{id}")
     public ResponseEntity getByRoomId(@PathVariable Long id) {
         return new ResponseEntity(roomRepository.findById(id), HttpStatus.OK);
     }
 
+    @PostMapping(value="/rooms")
+    public ResponseEntity postRoom(@RequestBody Room room){
+        roomRepository.save(room);
+        return new ResponseEntity(room, HttpStatus.CREATED);
+    }
 
     @DeleteMapping(value = "/rooms/{id}")
     public ResponseEntity deleteRoom(@PathVariable Long id) {
