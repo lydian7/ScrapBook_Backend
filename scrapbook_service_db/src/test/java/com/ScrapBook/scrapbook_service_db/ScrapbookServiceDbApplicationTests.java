@@ -109,7 +109,12 @@ class ScrapbookServiceDbApplicationTests {
 	}
 
 	@Test
+<<<<<<< HEAD
 	void canGetRoomByNameAndEmail(){
 		roomRepository.findByRoomNameAndAdmin("Memory Lane", "ahmet@gmail.com");
+=======
+	void canFindMessagesByRoomId() {
+		messageRepository.findByRoomId(1L);
+>>>>>>> 22d0f6d2b6bd27f9d7f4ce48642506262d0de791
 	}
 }

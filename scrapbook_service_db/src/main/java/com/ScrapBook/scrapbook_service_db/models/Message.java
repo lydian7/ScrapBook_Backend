@@ -40,7 +40,6 @@ public class Message {
         this.timeStamp = timeStamp;
         this.message = message;
         this.room = room;
-
     }
 
     public Message() {
