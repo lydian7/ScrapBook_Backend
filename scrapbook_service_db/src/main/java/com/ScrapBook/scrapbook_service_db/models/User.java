@@ -30,9 +30,9 @@ public class User {
     )
     private List<Room> rooms;
 
-//    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-//    @JsonIgnoreProperties("users")
-//    private List<Post> posts;
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @JsonIgnoreProperties("user")
+    private List<Post> posts;
 
     @Column(name = "profile_picture")
     private String profilePicture;
@@ -43,12 +43,16 @@ public class User {
     @Column(name = "password")
     private String password;
 
-    public User(String name, String bio, String profilePicture, String dateOfBirth, String password) {
+    @Column(name = "email")
+    private String email;
+
+    public User(String email, String name, String dateOfBirth, String password) {
+        this.email = email;
         this.name = name;
-        this.bio = bio;
+        this.bio = "";
         this.rooms = new ArrayList<>();
-//        this.posts = new ArrayList<>();
-        this.profilePicture = profilePicture;
+        this.posts = new ArrayList<>();
+        this.profilePicture = "";
         this.dateOfBirth = dateOfBirth;
         this.password = password;
     }
@@ -88,14 +92,6 @@ public class User {
         this.rooms = rooms;
     }
 
-//    public List<Post> getPosts() {
-//        return posts;
-//    }
-//
-//    public void setPosts(List<Post> posts) {
-//        this.posts = posts;
-//    }
-
     public String getProfilePicture() {
         return profilePicture;
     }
@@ -124,5 +120,23 @@ public class User {
         this.rooms.add(room);
     }
 
+    public String getEmail() {
+        return email;
+    }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
+    }
+
+    public void addPost(Post post){
+        this.posts.add(post);
+    }
 }

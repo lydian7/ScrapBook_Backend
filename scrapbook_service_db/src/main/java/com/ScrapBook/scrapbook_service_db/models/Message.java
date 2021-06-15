@@ -25,12 +25,21 @@ public class Message {
     @JsonIgnoreProperties("messages")
     private Room room;
 
+    @Column(name = "type")
+    @Enumerated(value = EnumType.STRING)
+    private MessageType type;
+
+    public enum MessageType {
+        CHAT,
+        JOIN,
+        LEAVE
+    }
+
     public Message(String sender, String timeStamp, String message, Room room) {
         this.sender = sender;
         this.timeStamp = timeStamp;
         this.message = message;
         this.room = room;
-
     }
 
     public Message() {
@@ -74,5 +83,13 @@ public class Message {
 
     public void setRoom(Room room) {
         this.room = room;
+    }
+
+    public MessageType getType() {
+        return type;
+    }
+
+    public void setType(MessageType type) {
+        this.type = type;
     }
 }

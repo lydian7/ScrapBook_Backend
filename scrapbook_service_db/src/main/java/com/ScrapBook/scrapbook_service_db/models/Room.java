@@ -21,6 +21,9 @@ public class Room {
     @Column(name = "bio")
     private String bio;
 
+    @Column(name= "admin")
+    private String admin;
+
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JsonIgnoreProperties({"rooms"})
@@ -30,24 +33,26 @@ public class Room {
     )
     private List<User> users;
 
-    @OneToMany(mappedBy = "room", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "room", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnoreProperties("room")
     private List<Message> messages;
 
-    @OneToMany(mappedBy = "room", fetch = FetchType.LAZY)
-    @JsonIgnoreProperties({"users"})
+
+    @OneToMany(mappedBy = "room", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @JsonIgnoreProperties({"room"})
     private List<Post> posts;
 
     @Column(name = "password")
     private String password;
 
-    public Room(String roomName, String bio, String password) {
+    public Room(String roomName, String bio, String password, String admin) {
         this.roomName = roomName;
         this.bio = bio;
         this.users = new ArrayList<>();
         this.messages = new ArrayList<>();
         this.password = password;
         this.posts = new ArrayList<>();
+        this.admin = admin;
     }
 
     public Room() {
@@ -119,5 +124,13 @@ public class Room {
 
     public void addPost(Post post){
         this.posts.add(post);
+    }
+
+    public String getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(String admin) {
+        this.admin = admin;
     }
 }

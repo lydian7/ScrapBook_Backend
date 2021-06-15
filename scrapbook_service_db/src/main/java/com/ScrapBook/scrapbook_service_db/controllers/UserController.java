@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class UserController {
@@ -44,6 +43,12 @@ public class UserController {
             (@RequestParam(name ="name" , required = false) String name, @RequestParam(name ="password", required = false) String password){
         User found = userRepository.findByNameAndPassword(name, password);
         return new ResponseEntity<>(found, HttpStatus.OK);
+    }
+
+    @GetMapping(value ="users/signup")
+    public ResponseEntity<User> getByEmail(@RequestParam(name="email", required=false) String email){
+        User found = userRepository.findByEmail(email);
+        return new ResponseEntity<User>(found, HttpStatus.OK);
     }
 
 }
