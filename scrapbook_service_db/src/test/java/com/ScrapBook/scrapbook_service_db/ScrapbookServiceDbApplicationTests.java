@@ -60,7 +60,7 @@ class ScrapbookServiceDbApplicationTests {
 
 	@Test
 	public void canFindUserByNameAndPassword() {
-	User found = userRepository.findByNameAndPassword("Pooja", "123456");
+	User found = userRepository.findByEmailAndPassword("Pooja", "123456");
 
 	}
 
