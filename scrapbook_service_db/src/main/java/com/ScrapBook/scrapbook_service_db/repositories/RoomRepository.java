@@ -10,4 +10,6 @@ import java.util.List;
 public interface RoomRepository extends JpaRepository<Room, Long> {
 
     List<Room> findByUsersId(Long user_id);
+
+    Room findByRoomNameAndAdmin(String name, String email);
 }

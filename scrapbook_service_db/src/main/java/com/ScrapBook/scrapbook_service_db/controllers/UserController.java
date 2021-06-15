@@ -1,5 +1,6 @@
 package com.ScrapBook.scrapbook_service_db.controllers;
 
+import com.ScrapBook.scrapbook_service_db.models.Room;
 import com.ScrapBook.scrapbook_service_db.models.User;
 import com.ScrapBook.scrapbook_service_db.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class UserController {
     }
 
     @PostMapping(value = "/users")
-    public ResponseEntity addUser(@RequestBody User user){
+    public ResponseEntity<User> addUser(@RequestBody User user){
         userRepository.save(user);
         return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
@@ -45,10 +46,18 @@ public class UserController {
         return new ResponseEntity<>(found, HttpStatus.OK);
     }
 
-    @GetMapping(value ="users/signup")
+    @GetMapping(value ="/users/signup")
     public ResponseEntity<User> getByEmail(@RequestParam(name="email", required=false) String email){
         User found = userRepository.findByEmail(email);
         return new ResponseEntity<User>(found, HttpStatus.OK);
+    }
+
+    @PutMapping(value = "/users/{id}")
+    public ResponseEntity addRoomToUser(@PathVariable Long id, @RequestBody Room room){
+        User user = userRepository.getById(id);
+        user.addRoom(room);
+        userRepository.save(user);
+        return new ResponseEntity(null, HttpStatus.OK);
     }
 
 }

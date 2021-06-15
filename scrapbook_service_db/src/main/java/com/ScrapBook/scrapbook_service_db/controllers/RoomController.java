@@ -27,6 +27,12 @@ public class RoomController {
         return new ResponseEntity<>(findRoom, HttpStatus.OK);
     }
 
+    @GetMapping(value = "/rooms/room")
+    public ResponseEntity<Room> getRoomByNameAndEmail(@RequestParam(name = "name", required = false) String name, @RequestParam(name = "email", required = false) String email){
+        Room foundRoom = roomRepository.findByRoomNameAndAdmin(name, email);
+        return new ResponseEntity<>(foundRoom, HttpStatus.OK);
+    }
+
     @GetMapping(value = "/rooms/{id}")
     public ResponseEntity getByRoomId(@PathVariable Long id) {
         return new ResponseEntity(roomRepository.findById(id), HttpStatus.OK);
@@ -49,9 +55,7 @@ public class RoomController {
 
     @PutMapping(value = "/rooms/{id}")
     public ResponseEntity<Room> patchAddUserToRoom(@PathVariable Long id, @RequestBody User user){
-        System.out.println(user.getName());
         Room room = roomRepository.getById(id);
-        System.out.println(room.getRoomName());
         room.addUser(user);
         roomRepository.save(room);
         return new ResponseEntity<>(null, HttpStatus.OK);

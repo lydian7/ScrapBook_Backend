@@ -107,4 +107,9 @@ class ScrapbookServiceDbApplicationTests {
 		userRepository.findByEmail("ahmet@gmail.com");
 
 	}
+
+	@Test
+	void canGetRoomByNameAndEmail(){
+		roomRepository.findByRoomNameAndAdmin("Memory Lane", "ahmet@gmail.com");
+	}
 }
