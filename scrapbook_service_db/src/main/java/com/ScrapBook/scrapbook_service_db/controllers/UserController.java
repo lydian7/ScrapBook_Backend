@@ -52,21 +52,22 @@ public class UserController {
         return new ResponseEntity<User>(found, HttpStatus.OK);
     }
 
-<<<<<<< HEAD
-    @PutMapping(value = "/users/{id}")
-    public ResponseEntity addRoomToUser(@PathVariable Long id, @RequestBody Room room){
+
+    @PutMapping(value = "/users/{id}/room")
+    public ResponseEntity addRoomToUser(@PathVariable Long id, @RequestBody Room room) {
         User user = userRepository.getById(id);
         user.addRoom(room);
         userRepository.save(user);
         return new ResponseEntity(null, HttpStatus.OK);
-=======
+    }
+
     @PutMapping(value ="/users/{id}")
     public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User newUser ) {
         User user = userRepository.getById(id);
         userRepository.save(newUser);
         return new ResponseEntity<>(newUser, HttpStatus.OK);
 
->>>>>>> 9ed1fff5599e2c192fca8587169b0ca74bfa9d38
+
     }
 
 }
