@@ -79,10 +79,10 @@ public class DataLoader implements ApplicationRunner {
 
 
 
-        Post post2 = new Post(LocalTime.now().toString(), "I love REACT", "img/pic", room3, liam);
+        Post post2 = new Post(LocalTime.now().toString(), "I love gaming", "https://firebasestorage.googleapis.com/v0/b/scrapbook-245c8.appspot.com/o/posts%2Fhorizon.jpeg?alt=media&token=109455a5-d14a-4553-8705-cbe66860a136", room3, liam);
         postRepository.save(post2);
 
-        Post post8 = new Post(LocalTime.now().toString(), "Climbing Holiday", "img/pic", room3, liam);
+        Post post8 = new Post(LocalTime.now().toString(), "coding is bae", "https://firebasestorage.googleapis.com/v0/b/scrapbook-245c8.appspot.com/o/posts%2Fcoding.png?alt=media&token=5cf161e4-6f28-4efc-a65b-e24e2f7ff7c7", room3, liam);
         postRepository.save(post8);
 
 
