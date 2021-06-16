@@ -1,6 +1,5 @@
 package com.ScrapBook.scrapbook_service_db.components;
 
-import com.ScrapBook.scrapbook_service_db.models.Message;
 import com.ScrapBook.scrapbook_service_db.models.Post;
 import com.ScrapBook.scrapbook_service_db.models.Room;
 import com.ScrapBook.scrapbook_service_db.models.User;
@@ -66,25 +65,24 @@ public class DataLoader implements ApplicationRunner {
 
         User mary = new User("mary@gmail.com", "Mary", "01/01/1978", "123456");
         mary.setProfilePicture("https://firebasestorage.googleapis.com/v0/b/scrapbook-245c8.appspot.com/o/profile-pics%2Fm5fgn.jpg?alt=media&token=dc6e853a-44d6-4162-8bcf-185db1656593");
-
         userRepository.save(mary);
 
         User liam = new User("liam@gmail.com", "Liam", "01/01/1990", "123456");
         liam.setProfilePicture("https://firebasestorage.googleapis.com/v0/b/scrapbook-245c8.appspot.com/o/profile-pics%2Fahmet-age-30.jpeg?alt=media&token=b04bc8b8-597c-4b95-a033-03527672e89d");
         userRepository.save(liam);
 
-        User user4 = new User("pooja@gmail.com", "Pooja", "01/01/1990", "123456");
-        userRepository.save(user4);
-
-        Message message = new Message(user.getName(), LocalTime.now().toString(), "This is my first message!", room);
-        messageRepository.save(message);
+        User pooja = new User("pooja@gmail.com", "Pooja", "01/01/1990", "123456");
+        pooja.setProfilePicture("https://firebasestorage.googleapis.com/v0/b/scrapbook-245c8.appspot.com/o/profile-pics%2Fpooja.jpeg?alt=media&token=8418f4ee-3ae3-4bf3-b131-ff4dad89eda9");
+        userRepository.save(pooja);
 
 
 
-        Post post2 = new Post(LocalTime.now().toString(), "I love REACT", "img/pic", room3, liam);
+
+
+        Post post2 = new Post(LocalTime.now().toString(), "I love gaming", "https://firebasestorage.googleapis.com/v0/b/scrapbook-245c8.appspot.com/o/posts%2Fhorizon.jpeg?alt=media&token=109455a5-d14a-4553-8705-cbe66860a136", room3, liam);
         postRepository.save(post2);
 
-        Post post8 = new Post(LocalTime.now().toString(), "Climbing Holiday", "img/pic", room3, liam);
+        Post post8 = new Post(LocalTime.now().toString(), "coding is bae", "https://firebasestorage.googleapis.com/v0/b/scrapbook-245c8.appspot.com/o/posts%2Fcoding.png?alt=media&token=5cf161e4-6f28-4efc-a65b-e24e2f7ff7c7", room3, liam);
         postRepository.save(post8);
 
 
@@ -101,10 +99,10 @@ public class DataLoader implements ApplicationRunner {
         postRepository.save(post11);
 
 
-        Post post6 = new Post(LocalTime.now().toString(), "Party at Ally's", "img/pic", room2, user4);
+        Post post6 = new Post(LocalTime.now().toString(), "Happy Times", "https://firebasestorage.googleapis.com/v0/b/scrapbook-245c8.appspot.com/o/posts%2FWhatsApp%20Image%202021-06-16%20at%205.33.08%20PM.jpeg?alt=media&token=5dd0b50c-baba-4121-92df-d4157c2d99e3", room4, pooja);
         postRepository.save(post6);
 
-        Post post9 = new Post(LocalTime.now().toString(), "Family Meal", "img/pic", room4, user4);
+        Post post9 = new Post(LocalTime.now().toString(), "Indian Cooking", "https://firebasestorage.googleapis.com/v0/b/scrapbook-245c8.appspot.com/o/posts%2FWhatsApp%20Image%202021-06-16%20at%205.32.10%20PM.jpeg?alt=media&token=05d357b9-34e2-4c19-b279-ca5b96d36649", room4, pooja);
         postRepository.save(post9);
 
 
@@ -112,21 +110,26 @@ public class DataLoader implements ApplicationRunner {
 //        user.addRoom(room);
 //        userRepository.save(user);
 
-        room.addUser(user4);
+        room.addUser(mary);
         roomRepository.save(room);
 
 
         room2.addUser(mary);
         room2.addUser(liam);
-        room2.addUser(user4);
+        room2.addUser(pooja);
         roomRepository.save(room2);
 
 
         room3.addUser(liam);
         roomRepository.save(room3);
 
+
         room7.addUser(mary);
         roomRepository.save(room7);
+
+        room4.addUser(pooja);
+        roomRepository.save(room4);
+
 
 
     }
