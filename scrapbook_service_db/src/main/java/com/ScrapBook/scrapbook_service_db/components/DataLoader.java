@@ -56,7 +56,7 @@ public class DataLoader implements ApplicationRunner {
         Room room6 = new Room("Cats", "Scrapbook of reasons why we live with these little terrors.", "123456", "mary@gmail.com");
         roomRepository.save(room6);
 
-        Room room7 = new Room("CodeClan Tears", "Remembering React.", "123456", "mary@gmail.com");
+        Room room7 = new Room("Baby Yoda", "So Cute", "123456", "mary@gmail.com");
         roomRepository.save(room7);
 
 
@@ -64,8 +64,10 @@ public class DataLoader implements ApplicationRunner {
         User user = new User("ahmet@gmail.com","Ahmet","01/11/1974", "metallica");
         userRepository.save(user);
 
-        User user2 = new User("mary@gmail.com", "Mary", "01/06/1978", "123456");
-        userRepository.save(user2);
+        User mary = new User("mary@gmail.com", "Mary", "01/01/1978", "123456");
+        mary.setProfilePicture("https://firebasestorage.googleapis.com/v0/b/scrapbook-245c8.appspot.com/o/profile-pics%2Fm5fgn.jpg?alt=media&token=dc6e853a-44d6-4162-8bcf-185db1656593");
+
+        userRepository.save(mary);
 
         User liam = new User("liam@gmail.com", "Liam", "01/01/1990", "123456");
         liam.setProfilePicture("https://firebasestorage.googleapis.com/v0/b/scrapbook-245c8.appspot.com/o/profile-pics%2Fahmet-age-30.jpeg?alt=media&token=b04bc8b8-597c-4b95-a033-03527672e89d");
@@ -86,11 +88,17 @@ public class DataLoader implements ApplicationRunner {
         postRepository.save(post8);
 
 
-        Post post3 = new Post(LocalTime.now().toString(), "NOT AN IMAGE", "img/pic", room4, user2);
+        Post post3 = new Post(LocalTime.now().toString(), "Coffee Break", "https://firebasestorage.googleapis.com/v0/b/scrapbook-245c8.appspot.com/o/profile-pics%2Fdinner.jpg?alt=media&token=86999a92-9bf6-444f-8e20-9a26da27b3e8", room7, mary);
         postRepository.save(post3);
 
-        Post post7 = new Post(LocalTime.now().toString(), "Glasgow Road Trip", "img/pic", room2, user2);
+        Post post7 = new Post(LocalTime.now().toString(), "Lovely Flowers", "https://firebasestorage.googleapis.com/v0/b/scrapbook-245c8.appspot.com/o/profile-pics%2Fflowers.jpg?alt=media&token=081433e4-b37d-4d54-a63a-c2401805807e", room7, mary);
         postRepository.save(post7);
+
+        Post post10 = new Post(LocalTime.now().toString(), "Camping", "https://firebasestorage.googleapis.com/v0/b/scrapbook-245c8.appspot.com/o/profile-pics%2Fcamping.jpg?alt=media&token=098b4ca3-f93a-4397-956f-2111ce4597e6", room7, mary);
+        postRepository.save(post10);
+
+        Post post11 = new Post(LocalTime.now().toString(), "Selfie", "https://firebasestorage.googleapis.com/v0/b/scrapbook-245c8.appspot.com/o/profile-pics%2Fselfie.jpg?alt=media&token=fe58b6cd-f5b0-4c24-abfa-b1a514f549cb", room7, mary);
+        postRepository.save(post11);
 
 
         Post post6 = new Post(LocalTime.now().toString(), "Party at Ally's", "img/pic", room2, user4);
@@ -108,7 +116,7 @@ public class DataLoader implements ApplicationRunner {
         roomRepository.save(room);
 
 
-        room2.addUser(user2);
+        room2.addUser(mary);
         room2.addUser(liam);
         room2.addUser(user4);
         roomRepository.save(room2);
@@ -117,8 +125,8 @@ public class DataLoader implements ApplicationRunner {
         room3.addUser(liam);
         roomRepository.save(room3);
 
-        room4.addUser(user2);
-        roomRepository.save(room4);
+        room7.addUser(mary);
+        roomRepository.save(room7);
 
 
     }
