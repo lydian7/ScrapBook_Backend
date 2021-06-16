@@ -63,7 +63,6 @@ public class UserController {
 
     @PutMapping(value ="/users/{id}")
     public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User newUser ) {
-        User user = userRepository.getById(id);
         userRepository.save(newUser);
         return new ResponseEntity<>(newUser, HttpStatus.OK);
 

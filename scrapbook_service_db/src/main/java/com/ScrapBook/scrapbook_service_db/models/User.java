@@ -23,7 +23,7 @@ public class User {
 
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
-    @JsonIgnoreProperties({"users"})
+    @JsonIgnoreProperties({"users", "posts"})
     @JoinTable(name = "rooms_users",
             joinColumns = {@JoinColumn(name = "user_id", nullable = false, updatable = false)},
             inverseJoinColumns = {@JoinColumn(name = "room_id", nullable = false, updatable = false)}
@@ -31,7 +31,7 @@ public class User {
     private List<Room> rooms;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    @JsonIgnoreProperties("user")
+    @JsonIgnoreProperties({"user","room"})
     private List<Post> posts;
 
     @Column(name = "profile_picture")
